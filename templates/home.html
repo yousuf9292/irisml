@@ -1,0 +1,67 @@
+{%extends "bootstrap/base.html"%}
+{%import "bootstrap/wtf.html" as wtf%}
+
+{%block styles%}
+{{super()}}
+<body style="background-color:#26A7A2;"><body style="background-color:#26A7A2;">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{%endblock%}
+
+
+{%block content%}
+<div class="container mt-2">
+<h2 class="text-white">Please enter your flower measurements below:</h2>
+<form  method="POST"  novalidate="novalidate">
+    <div class="form-group">
+    {{form.csrf_token}}
+
+        {{form.sep_len.label(class="text-white h2")}}
+        {{form.sep_len(class="form-control form-control-lg")}}
+
+        {%for error in form.sep_len.errors%}
+            <div class="alert alert-warning alert-dismissible fade show mt-2">
+                {{error}}
+            </div>
+        {%endfor%}
+
+        {{form.sep_wid.label(class="text-white h2")}}
+        {{form.sep_wid(class="form-control form-control-lg")}}
+
+        {%for error in form.sep_wid.errors%}
+            <div class="alert alert-warning alert-dismissible fade show mt-2">
+                {{error}}
+            </div>
+        {%endfor%}
+
+        {{form.pet_len.label(class="text-white h2")}}
+        {{form.pet_len(class="form-control form-control-lg")}}
+
+        {%for error in form.pet_len.errors%}
+            <div class="alert alert-warning alert-dismissible fade show mt-2">
+                {{error}}
+            </div>
+        {%endfor%}
+
+
+        {{form.pet_wid.label(class="text-white h2")}}
+        {{form.pet_wid(class="form-control form-control-lg")}}
+
+        {%for error in form.pet_wid.errors%}
+            <div class="alert alert-warning alert-dismissible fade show mt-2">
+                {{error}}
+            </div>
+        {%endfor%}
+
+
+        {{wtf.form_field(form.submit,class="btn btn-primary mt-2")}}
+    </div>
+</form>
+
+{%block scripts%}
+{{super()}}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{%endblock%}
+</div>
+{%endblock%}
